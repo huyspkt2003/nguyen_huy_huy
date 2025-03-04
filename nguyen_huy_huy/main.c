@@ -2,7 +2,7 @@
 
 int main()
 {
-	printf ("xin cha\n");
+	printf ("xin chao\n");
 }
 
 
