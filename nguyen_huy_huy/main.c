@@ -1,28 +1,50 @@
 #include <stdio.h>
 
 
-
 int main()
 {
-	float d = 3.0;
-	printf ("Nhap diem cua hoc sinh\n");
-	scanf_s ("%f" ,& d);
-	if (d >= 8.0)
+	int pass = 1234;
+	int buoc = 1;
+	int mknhap = 0;
+	int solan = 0;
+	int sotien = 0;
+	while (buoc != 4)
 	{
-		 printf("gioi\n");
-	}
-	else if (8.0 > d && d >= 6.5)
-	{
-		printf("kha\n");
-	}
-	else if (6.5 > d && d >= 5.0)
-	{
-		printf("tb\n");
-	}
-	else if (d < 5.0)
-	{
-		printf("yeu\n");
+		switch (buoc)
+		{
+		case 1:
+			printf("hay nhap mk:");
+			scanf_s("%d", &mknhap);
+			if (mknhap == pass)
+			{
+				printf("hay nhap so tien can rut:");
+				buoc = 2;
+			}
+			else
+			{
+				solan++;
+				if (solan > 3)
+				{
+					buoc = 4;
+				}
+			}
+			break;
+		case 2:
+			scanf_s("%d", &sotien);
+			if (sotien > 10000)
+			{
+				printf("hay nhap lai so tien can rut:");
+			}
+			else
+			{
+				buoc = 3;
+			}
+			break;
+		case 3:
+			printf("so tien rut la:%d", sotien);
+			buoc = 4;
+			break;
+		}
+
 	}
 }
-
-
