@@ -4,18 +4,18 @@
 
 int main()
 {
-	float d = 0.0;
-	printf("Nhap diem cua hoc sinh\n");
+	float d = 3.0;
+	printf ("Nhap diem cua hoc sinh\n");
 	scanf_s ("%f" ,& d);
 	if (d >= 8.0)
 	{
-		printf("gioi\n");
+		 printf("gioi\n");
 	}
-	else if (8.0 > d >= 6.5)
+	else if (8.0 > d && d >= 6.5)
 	{
 		printf("kha\n");
 	}
-	else if (6.5 > d >= 5.0)
+	else if (6.5 > d && d >= 5.0)
 	{
 		printf("tb\n");
 	}
