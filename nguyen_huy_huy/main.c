@@ -4,19 +4,24 @@
 
 int main()
 {
-	int a = 0;
-	int b = 0;
-	printf("hay nhap so nguyen x\n");
-	scanf_s ( "%d", &a);
-	printf("hay nhap so nguyen y\n");
-	scanf_s("%d", &b);
-	if (a >= b)
+	float d = 0.0;
+	printf("Nhap diem cua hoc sinh\n");
+	scanf_s ("%f" ,& d);
+	if (d >= 8.0)
 	{
-		printf("so lon nhat la:%d",a);
+		printf("gioi\n");
 	}
-	else
+	else if (8.0 > d >= 6.5)
 	{
-		printf("so lon nhat la:%d", b);
+		printf("kha\n");
+	}
+	else if (6.5 > d >= 5.0)
+	{
+		printf("tb\n");
+	}
+	else if (d < 5.0)
+	{
+		printf("yeu\n");
 	}
 }
 
