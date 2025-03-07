@@ -3,48 +3,26 @@
 
 int main()
 {
-	int pass = 1234;
-	int buoc = 1;
-	int mknhap = 0;
-	int solan = 0;
-	int sotien = 0;
-	while (buoc != 4)
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	printf(" Hay nhap vao so a:");
+	scanf_s("%d",&a);
+	printf(" Hay nhap vao so b:");
+	scanf_s("%d", &b);
+	printf(" Hay nhap vao so c:");
+	scanf_s("%d", &c);
+	if (a > b && a > c)
 	{
-		switch (buoc)
-		{
-		case 1:
-			printf("hay nhap mk:");
-			scanf_s("%d", &mknhap);
-			if (mknhap == pass)
-			{
-				printf("hay nhap so tien can rut:");
-				buoc = 2;
-			}
-			else
-			{
-				solan++;
-				if (solan > 3)
-				{
-					buoc = 4;
-				}
-			}
-			break;
-		case 2:
-			scanf_s("%d", &sotien);
-			if (sotien > 10000)
-			{
-				printf("hay nhap lai so tien can rut:");
-			}
-			else
-			{
-				buoc = 3;
-			}
-			break;
-		case 3:
-			printf("so tien rut la:%d", sotien);
-			buoc = 4;
-			break;
-		}
-
+		printf("So lon nhat la:%d", a);
 	}
+	else if (b > a && b > c)
+	{
+		printf("So lon nhat la:%d", b );
+	}
+	else 
+	{
+		printf("So lon nhat la:%d", c );
+	}
+
 }
