@@ -23,15 +23,15 @@ int main()
 			}
 			break;
 		case 1:
-			if (a > 0)
+			if ((a+2)%2 == 0)
 			{
-				printf("Day la so duong");
+				printf("Day la so chan");
 				n = 2;
 
 			}
 			else
 			{
-				printf("Day la so am");
+				printf("Day la so le");
 				n = 2;
 			}
 			break;
