@@ -6,9 +6,14 @@ int main()
 	int kq = 0;
 	for (int i = 0; i < 11; i++)
 	{
-		kq = 2 * i;
-		printf("2 x %d = %d \n",i, kq);
-		
+		for (int j = 2; j < 10; j++)
+		{
+			kq = j * i;
+			printf("%d x %d = %d \t",j, i, kq);
+			
+
+		}
+		printf("\n");
 	}
 }
 
