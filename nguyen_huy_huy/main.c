@@ -9,6 +9,11 @@ int main()
 	scanf_s("%d", &n);
 	for (int np = 0; np <= n; np++)
 	{
+		if (np % 2 != 0)
+		{
+			continue;
+		}
+			
 		tong = tong + np;
 	}
 	printf("%d", tong );
