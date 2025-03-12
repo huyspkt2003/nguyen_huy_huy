@@ -4,19 +4,14 @@
 int main()
 {
 	int n = 0;
-	int tong = 0;
+	int gt = 1;
 	printf("nhap so nguyen: ");
 	scanf_s("%d", &n);
-	for (int np = 0; np <= n; np++)
+	for (int np = 1 ; np <= n; np++)
 	{
-		if (np % 2 != 0)
-		{
-			continue;
-		}
-			
-		tong = tong + np;
+		gt = gt*np;
 	}
-	printf("%d", tong );
+	printf("%d",  gt );
 
 	
 }
