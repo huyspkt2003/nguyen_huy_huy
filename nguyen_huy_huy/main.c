@@ -3,30 +3,20 @@
 
 int main()
 {
-	int a = 0;
-	int b = 0;
-	int n = 0;
-	printf("Nhap so nguyen a: ");
-	scanf_s("%d", &a);
-	printf("Nhap so nguyen b: ");
-	scanf_s("%d", &b);
-	if (a == 0 || b == 0)
+	float a = 0;
+	float b = 0;
+	float h = 0;
+	float kq = 0;
+	printf("Nhap a: ");
+	scanf_s("%f", &a);
+	printf("Nhap b: ");
+	scanf_s("%f", &b);
+	h = (b-a) / 1000;
+	for (int i = 0; i < 999; i++)
 	{
-		printf("uoc chung lon nhat la:%d", a + b);
+		kq += (pow((a + i * h), 2) + pow((a + (1 + i) * h), 2))*h/2;
 	}
-	/// Use Euclid algorithm
-	while (a != b)
-	{
-		if (a > b)
-			a = a - b;
-		else
-			b = b - a;
-	}
-	printf("Uoc chung lon nhat la:%d", a);
-
-
-	
-	
+	printf("Ket qua la:%f", kq);
 }
 
 
