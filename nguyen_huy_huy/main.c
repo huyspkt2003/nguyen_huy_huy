@@ -3,22 +3,27 @@
 
 int main()
 {
-	int nhap = 0;
+	int a = 0;
+	int b = 0;
 	int n = 0;
-	printf("nhap so nguyen: ");
-	scanf_s("%d", &nhap);
-		for (int i = 0; i < nhap; i++)
-		{
-			for (int j = 1; j <= i; j++)
-			{
-				if (i % j == 0)
-				n++;
-					
-			}
-			if (n == 2)
-				printf("%d\t", i);
-			n = 0;
-		}
+	printf("Nhap so nguyen a: ");
+	scanf_s("%d", &a);
+	printf("Nhap so nguyen b: ");
+	scanf_s("%d", &b);
+	if (a == 0 || b == 0)
+	{
+		printf("uoc chung lon nhat la:%d", a + b);
+	}
+	/// Use Euclid algorithm
+	while (a != b)
+	{
+		if (a > b)
+			a = a - b;
+		else
+			b = b - a;
+	}
+	printf("Uoc chung lon nhat la:%d", a);
+
 
 	
 	
