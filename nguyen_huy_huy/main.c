@@ -4,16 +4,11 @@
 int main()
 {
 	int n = 0;
-	int gt = 1;
-	printf("nhap so nguyen: ");
-	scanf_s("%d", &n);
-	for (int np = 1 ; np <= n; np++)
+	do
 	{
-		gt = gt*np;
-	}
-	printf("%d",  gt );
-
-	
+		printf("nhap so nguyen: ");
+		scanf_s("%d", &n);
+	} while (n != 0);
 }
 
 
