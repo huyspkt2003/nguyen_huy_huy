@@ -1,25 +1,30 @@
 #include <stdio.h>
-#include <math.h>
 
 int main()
 {
-	int arr[] = { 1,2,3,4,7 };
-	int num_elements = (sizeof(arr) / sizeof(arr[0])) - 1;
-	float sum_odd = 0;
-	float odd = 0;
+	int arr[] = { 1,2,2,4,5,4,6,5,6,4 };
+	int max = 0;
+	int so_luong = sizeof(arr) / sizeof(arr[0]);
 
-	for (int i = 0; i <= num_elements; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		if (arr[i] % 2 != 0)
+		if (arr[i] > max)
 		{
-			odd += arr[i];
-			sum_odd++;
+			max = arr[i];
 		}
 	}
-	printf("The sum of elements in the array is: %f", odd / sum_odd);
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[i] == max)
+		{
+			printf("%d\t", i);
+		}
+	}
+
 
 
 }
+
 
 
 
