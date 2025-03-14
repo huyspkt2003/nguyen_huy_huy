@@ -3,18 +3,24 @@
 
 int main()
 {
-	int arr[] = { 1,2,3 };
+	int arr[] = { 1,2,3,4,7 };
 	int num_elements = (sizeof(arr) / sizeof(arr[0])) - 1;
-	int sum = 0;
+	float sum_odd = 0;
+	float odd = 0;
 
 	for (int i = 0; i <= num_elements; i++)
 	{
-		sum = sum + arr[i];
+		if (arr[i] % 2 != 0)
+		{
+			odd += arr[i];
+			sum_odd++;
+		}
 	}
-	printf("The sum of elements in the array is: %d", sum);
+	printf("The sum of elements in the array is: %f", odd / sum_odd);
 
 
 }
+
 
 
 
