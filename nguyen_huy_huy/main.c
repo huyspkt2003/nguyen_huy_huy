@@ -1,36 +1,33 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-//Chức năng: sap xep cac phan tu theo gia tri tang dan
-//Input: mảng, số lượng phần tử
-// (int* array, so_luong)
-//Output: no
-void position(int* arr, int num_elements)
+//Chức năng: Xây dựng hàm. dùng để điếm có bao nhiêu ký tự space (dấu cách) trong chuỗi
+//Input: chuỗi
+// (char* string)
+//Output: so ki tu space
+int sum_space(char* string)
 {
-	int temp = 0;
-	int uocchung;
-
-	for (int i = 0; i < num_elements; i++)
+	int sum_ele = 0;
+	int sum_space = 0;
+	while (string [sum_ele] != 0)
 	{
-		for (int i = 0; i < num_elements - 1; i++)
+		if (string[sum_ele] == ' ')
 		{
-			if (*(arr+i) > *(arr+i+1))
-			{
-				temp = *(arr + i+1);
-				*(arr + i+1) = *(arr+i);
-				*(arr + i) = temp;
-			}
+			sum_space++;
 		}
-			
+		sum_ele++;
+
 	}
+	return sum_space;
 	
 }
 
 int main()
 {
-	int arr[] = { 1,3,2,4,7,9,1,9 };
-	position(arr,8);
-
+	int tong = 0;
+	char str[] = "hello world hihi";
+	tong = sum_space(str);
+	printf("%d", tong);
 
 }
 
