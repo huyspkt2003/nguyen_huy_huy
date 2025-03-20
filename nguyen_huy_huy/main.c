@@ -1,29 +1,25 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-//Chức năng: in ra các giá trị la số nguyên tố trong array
+//Chức năng: sap xep cac phan tu theo gia tri tang dan
 //Input: mảng, số lượng phần tử
 // (int* array, so_luong)
 //Output: no
 void position(int* arr, int num_elements)
 {
+	int temp = 0;
 	int uocchung;
 
 	for (int i = 0; i < num_elements; i++)
 	{
-		uocchung = 0;
-		
-			for (int j = 1; j <= *(arr + i); j++)
-			{
-			
-					if (*(arr + i) % j == 0)
-							   uocchung++;
-
-			}
-		if (uocchung == 2)
+		for (int i = 0; i < num_elements - 1; i++)
 		{
-			printf(" % d\t", *(arr + i));
-			
+			if (*(arr+i) > *(arr+i+1))
+			{
+				temp = *(arr + i+1);
+				*(arr + i+1) = *(arr+i);
+				*(arr + i) = temp;
+			}
 		}
 			
 	}
