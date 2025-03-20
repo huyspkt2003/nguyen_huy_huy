@@ -1,10 +1,10 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-//Chức năng: In ra cac vi tri cua so lon nhat trong mang
+//Chức năng: Thay the cac so am trong mang bang 0
 //Input: mảng, số lượng phần tử
 // (int* array, so_luong)
-//Output: vi tri cua so lon nhat trong mang
+//Output: no
 void position(int* arr, int num_elements)
 {
 	
@@ -12,16 +12,9 @@ void position(int* arr, int num_elements)
 
 	for (int i = 0; i < num_elements; i++)
 	{
-		if (*(arr+i) > max)
+		if (*(arr + i) < 0)
 		{
-			max = *(arr + i);
-		}
-	}
-	for (int i = 0; i < num_elements; i++)
-	{
-		if (*(arr+i) == max)
-		{
-			printf("%d\t", i);
+			 *(arr + i) =0;
 		}
 	}
 	
@@ -30,8 +23,9 @@ void position(int* arr, int num_elements)
 
 int main()
 {
-	int arr[] = { 1,2,2,4,9,9,1,9 };
+	int arr[] = { -1,2,-2,4,-9,9,-1,9 };
 	position(arr,8);
+
 
 }
 
