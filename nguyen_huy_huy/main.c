@@ -1,38 +1,37 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-//Chức năng: Tính TBC cac phan tu la so le của mảng
+//Chức năng: In ra cac vi tri cua so lon nhat trong mang
 //Input: mảng, số lượng phần tử
 // (int* array, so_luong)
-//Output: TBC của các phần tử lẻ trong mảng
-float average(int* array, int num_elements)
+//Output: vi tri cua so lon nhat trong mang
+void position(int* arr, int num_elements)
 {
 	
-	float sum_odd = 0;
-	float odd = 0;
-	float average_odd = 0;
+	int max = 0;
 
 	for (int i = 0; i < num_elements; i++)
 	{
-		if (*(array+i) % 2 != 0)
+		if (*(arr+i) > max)
 		{
-			odd += *(array + i);
-			sum_odd++;
+			max = *(arr + i);
 		}
 	}
-	average_odd = odd / sum_odd;
-	return average_odd;
-
+	for (int i = 0; i < num_elements; i++)
+	{
+		if (*(arr+i) == max)
+		{
+			printf("%d\t", i);
+		}
+	}
+	
 }
 
 
 int main()
 {
-	float TBC = 0;
-	int arr[] = { 1,2,3,4,7 };
-	TBC = average(arr, 5);
-
-	printf("TBC la: %f", TBC);
+	int arr[] = { 1,2,2,4,9,9,1,9 };
+	position(arr,8);
 
 }
 
