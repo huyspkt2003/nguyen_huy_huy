@@ -1,35 +1,38 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-//Chức năng: dùng để in hoa chữ cái đầu tiên của từ trong chuỗi str
-//"nguyen van a" -> "Nguyen Van A"
-//Input: chuỗi
-// (char* string)
-//Output: no
-void upper_word(char* string)
-{
-	int sum_ele = 0;
-	int sum_word = 0;
-	string[0] -= 32;
-	while (string [sum_ele] != 0)
-	{
-		if (string[sum_ele] == 32 && string[sum_ele+1]!=32  )
-		{
-			string[sum_ele + 1] -= 32;
-		}
-		sum_ele++;
+typedef int so_nguyen_t; // tao kieu du lieu moi - so_nguyen_t : ten kieu du ieu moi
 
-	}
-	printf("%d", sum_word);
+//xay dung struct
+struct phan_so
+{
+	int tu;
+	int mau;
+};
+
+//Chức năng: Nhân 2 phân số
+//Input :
+// struct phan_so x - phan so thu nhat
+// struct phan_so y - phan so thu hai
+// Output : struct phan_tu
+void nhanpx(struct phan_so A, struct phan_so B)
+{
+	struct phan_so C;
+	C.tu = A.tu* B.tu;
+	C.mau = A.mau * B.mau;
+	
+	printf("Ket qua la:%d/%d", C.tu, C.mau);
 }
 
 int main()
 {
-	int tong = 0;
-	char str[] = "nguyen huu huy";
-	upper_word(str);
-	
-
+	struct phan_so X;
+	X.tu = 1;
+	X.mau = 2;
+	struct phan_so Y;
+	Y.tu = 1;
+	Y.mau = 2;
+	nhanpx(X, Y);
 }
 
 
