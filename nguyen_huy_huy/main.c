@@ -3,6 +3,7 @@
 
 typedef int so_nguyen_t; // tao kieu du lieu moi - so_nguyen_t : ten kieu du ieu moi
 
+
 //xay dung struct
 struct phan_so
 {
@@ -10,12 +11,19 @@ struct phan_so
 	int mau;
 };
 
-//Chức năng: Nhân 2 phân số
-//Input :
+//cach 2
+typedef struct
+{
+	int tu;
+	int mau;
+}phan_so_t;
+
+// Chức năng: Nhân 2 phân số
+// Input :
 // struct phan_so x - phan so thu nhat
 // struct phan_so y - phan so thu hai
-// Output : struct phan_tu
-void nhanpx(struct phan_so A, struct phan_so B)
+// Output : struct phan_tu ket qua phep tinh
+void nhanpx(phan_so_t A, phan_so_t B)
 {
 	struct phan_so C;
 	C.tu = A.tu* B.tu;
@@ -24,15 +32,34 @@ void nhanpx(struct phan_so A, struct phan_so B)
 	printf("Ket qua la:%d/%d", C.tu, C.mau);
 }
 
-int main()
+// Chức năng :xay dung kieu du lieu hoc sinh
+// ten tuoi, diem toan, diem van, diem trung binh, xep loai hoc sinh( 0: gioi, 1:kha, 2:TB, 3:Yeu)
+// phan_so_t* mang - dia chi bat dau cua mang
+// so luong phan tu
+// Output : struct phan_tu ket qua phep tinh
+typedef struct
 {
-	struct phan_so X;
-	X.tu = 1;
-	X.mau = 2;
-	struct phan_so Y;
-	Y.tu = 1;
-	Y.mau = 2;
-	nhanpx(X, Y);
+	char* ten ;
+	int tuoi;
+	float diem_van;
+	float diem_toan;
+	float diem_TB;
+	int xep_loai;
+}hoc_sinh;
+
+
+
+
+
+
+void main()
+{
+	phan_so_t mang[] = {
+		{ 1,2 },
+		{ 2,3 },
+		{ 3,4 },
+		{ 5,6 }
+	};
 }
 
 
