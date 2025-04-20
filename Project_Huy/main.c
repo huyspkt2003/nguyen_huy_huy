@@ -10,59 +10,92 @@ typedef struct {
     float diemtb;
 } HocSinh;
 
-
-float Tinh_TB(float diem1, float diem2)
-{
-    return (diem1 + diem2) / 2;
+float Tinh_TB(float diem1, float diem2) {
+    return (diem1 + diem2) / 2.0f;
 }
 
 int main() {
     FILE* pf = fopen("D:/Download/DanhSachHocSinh1.csv", "r");
 
     if (pf == NULL) {
-        printf("Failed to open the file.\n");
+        printf("Không mở được file.\n");
         return 1;
     }
-    else {
-        printf("Successfully opened the file.\n");
-    }
-    
-//////////////////////
-    HocSinh hocsinh;
-    HocSinh hsmax;
+
+    HocSinh dshs[5];
+    int n = 0;
     char buffer[1024];
-    float TBmax = 0;
-    char hocsinhmax[50];
- 
 
-    
+
     while (fgets(buffer, sizeof(buffer), pf) != NULL) {
+        int result = sscanf(buffer, "%49[^,],%d,%3[^,],%f,%f",
+            dshs[n].ten,
+            &dshs[n].tuoi,
+            dshs[n].gioi_tinh,
+            &dshs[n].diemvan,
+            &dshs[n].diemtoan);
 
-        sscanf_s(buffer, "%49[^,],%d,%3s,%f,%f", 
-            hocsinh.ten, (unsigned)_countof(hocsinh.ten),
-            &hocsinh.tuoi, 
-            hocsinh.gioi_tinh, (unsigned)_countof(hocsinh.gioi_tinh),
-            &hocsinh.diemvan, 
-            &hocsinh.diemtoan);
-
-        hocsinh.diemtb = Tinh_TB(hocsinh.diemvan, hocsinh.diemtoan);
-        if (hocsinh.diemtb > TBmax)
-        {
-            TBmax = hocsinh.diemtb;
-            hsmax = hocsinh;
+        if (result == 5) {
+            dshs[n].diemtb = Tinh_TB(dshs[n].diemvan, dshs[n].diemtoan);
+            n++;
+        }
+        else {
+            printf(" Lỗi đọc dòng: %s", buffer);
         }
     }
+    int vitri_max = 0;
+    for (int i = 1; i < n; i++) {
+        if (dshs[i].diemtb > dshs[vitri_max].diemtb) {
+            vitri_max = i;
+        }
+    }
+
+    HocSinh hsmax = dshs[vitri_max];
+    printf("\n Hoc sinh co diem TB cao nhat:\n");
+    printf("Ten: %s\n", hsmax.ten);
+    printf("Tuoi : %d\n", hsmax.tuoi);
+    printf("Gioi tinh: %s\n", hsmax.gioi_tinh);
+    printf("Diem Van: %.2f\n", hsmax.diemvan);
+    printf("Diem Toan: %.2f\n", hsmax.diemtoan);
+    printf("Diem TB : %.2f\n", hsmax.diemtb);
     
-    printf("Hoc sinh co diem tb cao nhat:\n");
-    printf("Name: %s\n", hsmax.ten);
-    printf("Age: %d\n", hsmax.tuoi);
-    printf("Gender: %s\n", hsmax.gioi_tinh);
-    printf("Literature score : %.2f\n", hsmax.diemvan);
-    printf("Math Score: %.2f\n", hsmax.diemtoan);
-    printf(": %.2f\n", hsmax.diemtb);
+    printf("----------------------------------------------------------------\n");
+    // Sapxep
+    HocSinh temp;
+    for (int i = 0; i < n; i++) 
+    {
+        for (int j = i+1; j < n; j++)
+        {
 
+            if (dshs[i].diemtb < dshs[j].diemtb)
+            {
+                temp = dshs[i];
+                dshs[i] = dshs[j];
+                dshs[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%s,%d,%s,%.2f,%.2f,%.2f\n", dshs[i].ten, dshs[i].tuoi, dshs[i].gioi_tinh,
+            dshs[i].diemvan, dshs[i].diemtoan, dshs[i].diemtb);
+    }
+
+    //--------------------------------------------------------------------------------------
+    FILE* pf_out = fopen("D:/Download/SapXep.txt", "w");
+
+    if (pf_out == NULL) {
+        printf("Không mở được file.\n");
+        return 1;
+    }
+    for (int i = 0; i < 5; i++) {
+        fprintf(pf_out, "%s,%d,%s,%.2f,%.2f,%.2f\n", dshs[i].ten, dshs[i].tuoi, dshs[i].gioi_tinh,
+            dshs[i].diemvan, dshs[i].diemtoan, dshs[i].diemtb);
+    }
+
+
+    fclose(pf_out);
     fclose(pf);
-  
-
     return 0;
 }
+
